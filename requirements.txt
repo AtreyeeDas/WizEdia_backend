@@ -12,3 +12,4 @@ torch
 torchvision
 tiktoken==0.5.1
 sentence-transformers==2.2.2
+flask_limiter
