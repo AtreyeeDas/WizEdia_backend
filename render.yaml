@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: wizedia-backend
+    env: python
+    buildCommand: |
+      mkdir -p /tmp/cargo
+      curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+      export PATH="$HOME/.cargo/bin:$PATH"
+      export CARGO_HOME="/tmp/cargo"
+      pip install --upgrade pip setuptools wheel
+      pip install -r requirements.txt
+    startCommand: gunicorn main:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.13
+      - key: PORT
+        value: 10000
+      - key: FLASK_APP
+        value: main.py
+      - key: CARGO_HOME
+        value: /tmp/cargo
+      - key: PATH
+        value: "$HOME/.cargo/bin:${{PATH}}"
+      # Add your other environment variables here
+      # - key: YOUR_ENV_VAR
+      #   value: your-value
