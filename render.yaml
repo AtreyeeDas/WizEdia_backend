@@ -2,17 +2,15 @@ services:
   - type: web
     name: wizedia-backend
     env: python
+    python:
+      version: 3.10.13
     buildCommand: |
-      mkdir -p /tmp/cargo
-      curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-      export PATH="$HOME/.cargo/bin:$PATH"
-      export CARGO_HOME="/tmp/cargo"
-      pip install --upgrade pip setuptools wheel
-      pip install -r requirements.txt
+      chmod +x build.sh
+      ./build.sh
     startCommand: gunicorn main:app
     envVars:
       - key: PYTHON_VERSION
-        value: 3.10.0
+        value: 3.10.13
       - key: PORT
         value: 10000
       - key: FLASK_APP
