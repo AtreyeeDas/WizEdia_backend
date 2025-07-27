@@ -67,15 +67,28 @@ def create_app():
             'message': 'Welcome to WizEdia - Your Hogwarts Learning Companion! 🏰',
             'endpoints': {
                 'pensieve': '/api/pensieve/analyze',
-                'riddlenet': '/api/riddlenet/respond',
                 'hermione': '/api/hermione/chat',
-                'potion': '/api/potion/mix',
-                'erised': '/api/erised/quote',
+                'potion': '/api/potion/analyze-batch',
+                'erised': {
+                    'quote': '/api/erised/quote',
+                    'daily': '/api/erised/daily',
+                    'themed': '/api/erised/themed',
+                    'custom': '/api/erised/custom',
+                },
                 'prophecy': '/api/prophecy/calendar-alerts',
                 'marauder': '/api/marauder/events',
-                'library': '/api/library/summarize',
-                'pods': '/api/pods/recommend'
-            }
+                'library': {
+                    'summarize': '/api/library/summarize',
+                    'fact_check': '/api/library/fact-check',
+                    'compare_sources': '/api/library/compare-sources',
+                    'research_assistant': '/api/library/research-assistant',
+                    'plagiarism_checker': '/api/library/plagiarism-checker'
+                },
+                'pods': {
+                    'recommend': '/api/pods/recommend',
+                    'learning_path': '/api/pods/learning-path',
+                    'tutoring': '/api/pods/tutoring',
+                    'ai_tutor': '/api/pods/ai-tutor'            }
         })
     
     # Global error handlers
