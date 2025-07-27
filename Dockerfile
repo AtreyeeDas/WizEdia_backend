@@ -20,6 +20,3 @@ ENV PORT=8080
 # Command to run the application (adjust as needed)
 CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:${PORT} main:app"]
 
-envVars:
-  - key: PORT
-    value: 8080
