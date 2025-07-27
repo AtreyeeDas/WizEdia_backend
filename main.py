@@ -88,7 +88,9 @@ def create_app():
                     'recommend': '/api/pods/recommend',
                     'learning_path': '/api/pods/learning-path',
                     'tutoring': '/api/pods/tutoring',
-                    'ai_tutor': '/api/pods/ai-tutor'            }
+                    'ai_tutor': '/api/pods/ai-tutor'
+                }
+            }
         })
     
     # Global error handlers
