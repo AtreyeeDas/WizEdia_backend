@@ -35,7 +35,7 @@ def create_app():
     app.config['DEBUG'] = os.getenv('FLASK_DEBUG', 'False').lower() == 'true'
     
     # Enable CORS for all domains and all routes
-    CORS(app, origins=["http://localhost:5173"], allow_headers=["Content-Type", "Authorization"], methods=["GET", "POST", "OPTIONS"])
+    CORS(app, origins=["https://wizedia.vercel.app/"], allow_headers=["Content-Type", "Authorization"], methods=["GET", "POST", "OPTIONS"])
     
     # Initialize Firebase
     initialize_firebase()
